@@ -6,7 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AccountRepo extends CrudRepository<Account, UUID> {
     Account deleteAccountById(UUID id);
     Optional<Account> findById(UUID id);

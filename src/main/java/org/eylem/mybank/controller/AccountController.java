@@ -19,7 +19,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public AccountDto create(@Valid @RequestBody AccountDto accountDto){
         return accountService.create(accountDto.toAccount()).accountDto();
@@ -38,7 +38,7 @@ public class AccountController {
         return accountService.transferMoney(IBAN,toIBAN, moneyTransfer);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public AccountDto delete(@PathVariable("id")UUID id){
         return accountService.delete(id).accountDto();

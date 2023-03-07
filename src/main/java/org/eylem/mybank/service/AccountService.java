@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
+import java.util.list;
 
 
 @Service
@@ -32,7 +33,11 @@ public class AccountService {
     public Account delete(UUID id){
         return accountRepo.deleteAccountById(id);
     }
-
+    
+    public List<Account> getAllAccount(){
+        return accountRepo.getAllAccounts();
+    }
+        
     public Account getAccountSummary(UUID id) {
         /*Optional<Account> account=accountRepo.findById(id);
         if (!account.isPresent()){
